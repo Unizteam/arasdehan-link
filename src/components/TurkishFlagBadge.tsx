@@ -2,12 +2,16 @@ import { cn } from "@/lib/cn";
 
 type TurkishFlagBadgeProps = {
   className?: string;
+  label?: string;
 };
 
 /** Circular Turkish flag for the Türkçe Kursum section heading. */
-export function TurkishFlagBadge({ className }: TurkishFlagBadgeProps) {
+export function TurkishFlagBadge({
+  className,
+  label = "پرچم ترکیه",
+}: TurkishFlagBadgeProps) {
   return (
-    <span role="img" aria-label="پرچم ترکیه" className="inline-flex shrink-0">
+    <span role="img" aria-label={label} className="inline-flex shrink-0">
       <svg
         viewBox="0 0 40 40"
         aria-hidden="true"

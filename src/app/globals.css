@@ -129,4 +129,62 @@ body {
   .marquee-clone {
     display: none !important;
   }
+
+  .course-fade {
+    animation: none;
+  }
+}
+
+/* Türkçe Kursum mini-site: warmer Istanbul field on the same charcoal base. */
+.course-backdrop {
+  background-color: var(--backdrop);
+  background-image:
+    radial-gradient(54% 38% at 8% 0%, rgba(168, 42, 36, 0.22), transparent 64%),
+    radial-gradient(48% 34% at 94% 10%, rgba(42, 32, 78, 0.26), transparent 68%),
+    radial-gradient(60% 30% at 48% 100%, rgba(110, 52, 32, 0.2), transparent 72%);
+}
+
+.course-hero-veil {
+  background: linear-gradient(
+    to top,
+    rgba(13, 14, 14, 0.96) 0%,
+    rgba(13, 14, 14, 0.58) 46%,
+    rgba(13, 14, 14, 0.34) 100%
+  );
+}
+
+.course-cta {
+  background:
+    radial-gradient(80% 120% at 100% 0%, rgba(232, 178, 171, 0.16), transparent 58%),
+    linear-gradient(145deg, #2a1614 0%, #1a1211 48%, #24110f 100%);
+  box-shadow:
+    0 28px 60px -32px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(242, 237, 228, 0.08);
+}
+
+.course-fade {
+  animation: course-rise 0.7s ease both;
+}
+
+.course-fade-delay-1 {
+  animation-delay: 80ms;
+}
+
+.course-fade-delay-2 {
+  animation-delay: 150ms;
+}
+
+.course-fade-delay-3 {
+  animation-delay: 220ms;
+}
+
+@keyframes course-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

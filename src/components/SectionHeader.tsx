@@ -6,7 +6,7 @@ import { SafeLink } from "@/components/SafeLink";
 
 import { siteConfig } from "@/data/site";
 
-import { hasHttpUrl } from "@/lib/links";
+import { hasLink } from "@/lib/links";
 
 
 
@@ -44,7 +44,7 @@ export function SectionHeader({
 
 }: SectionHeaderProps) {
 
-  const enabled = hasHttpUrl(href);
+  const enabled = hasLink(href);
 
 
 
