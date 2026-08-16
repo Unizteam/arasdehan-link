@@ -19,8 +19,8 @@ export const siteConfig: SiteConfig = {
     avatarObjectPosition: "50% 16%",
   },
   links: {
-    NEOTRACKED_URL: "https://neutracked.netlify.app/",
-    UNIELITEZ_URL: "https://unielitez.netlify.app/?tuitionCurrency=USD",
+    NEOTRACKED_URL: "https://neutracked.netlify.app/?lang=fa",
+    UNIELITEZ_URL: "https://unielitez.netlify.app/?tuitionCurrency=USD&lang=fa",
     ETVAVIDA_URL: "https://etvavida.netlify.app/",
     TURKISH_COURSE_URL: "/turkish-course",
     TELEGRAM_URL: "https://t.me/arasdehan",
