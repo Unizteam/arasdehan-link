@@ -45,6 +45,9 @@ export function ContentCard({
 }: ContentCardProps) {
   const enabled = hasLink(href);
   const isInline = variant === "inline";
+  const isImageOnly =
+    !isInline && !title.trim() && !(description?.trim() ?? "");
+  const label = title.trim() || imageAlt;
   const widthClass = isInline ? carouselInlineCard.item : carouselDetailCard.item;
   const shellClass = cn(
     "overflow-hidden bg-surface",
@@ -102,6 +105,8 @@ export function ContentCard({
         ) : null}
       </div>
     </div>
+  ) : isImageOnly ? (
+    <div className={carouselDetailCard.imageOnlyMedia}>{media}</div>
   ) : (
     <>
       <div className={carouselDetailCard.media}>{media}</div>
@@ -136,7 +141,7 @@ export function ContentCard({
     <div dir={siteConfig.direction} role="listitem" className={cn("shrink-0", widthClass)}>
       <SafeLink
         href={href}
-        aria-label={enabled ? title : `${title} — ${siteConfig.ui.comingSoon}`}
+        aria-label={enabled ? label : `${label} — ${siteConfig.ui.comingSoon}`}
         className={cn(
           shellClass,
           "block transition duration-300 hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground",

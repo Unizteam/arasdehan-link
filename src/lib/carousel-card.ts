@@ -5,6 +5,8 @@ export const carouselDetailCard = {
   /** Fixed total height so text length cannot stretch cards */
   shell: "flex h-[252px] flex-col sm:h-[260px]",
   media: "relative h-[148px] w-full shrink-0 overflow-hidden bg-[#1b1b1a] sm:h-[156px]",
+  imageOnlyMedia:
+    "relative h-full w-full shrink-0 overflow-hidden bg-[#1b1b1a]",
   body: "flex min-h-0 flex-1 flex-col px-3.5 pb-3.5 pt-3",
   title:
     "line-clamp-2 min-h-[3rem] text-[14.5px] leading-6 font-semibold text-foreground",

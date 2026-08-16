@@ -329,8 +329,7 @@ export const siteConfig: SiteConfig = {
           },
           {
             id: "persian",
-            title: "ترکی استانبولی برای فارسی‌زبانان",
-            description: "توضیح ویژه برای فارسی‌زبانان.",
+            title: "",
             image: "/media/turkish/persian.webp",
             imageAlt: "آموزش ترکی استانبولی ویژه فارسی‌زبانان",
             objectPosition: "center 40%",
