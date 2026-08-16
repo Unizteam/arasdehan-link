@@ -327,13 +327,6 @@ export const siteConfig: SiteConfig = {
             imageAlt: "تمرین مکالمه و تلفظ ترکی استانبولی",
             objectPosition: "center 30%",
           },
-          {
-            id: "persian",
-            title: "",
-            image: "/media/turkish/persian.webp",
-            imageAlt: "آموزش ترکی استانبولی ویژه فارسی‌زبانان",
-            objectPosition: "center 40%",
-          },
         ],
       },
     },
