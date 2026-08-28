@@ -24,12 +24,6 @@ const formatIcons = {
   group: GroupIcon,
 } as const;
 
-const courseImagePosition: Record<string, string> = {
-  daily: "center 40%",
-  university: "center 35%",
-  work: "center 40%",
-};
-
 export function TurkishCoursePage() {
   const { lang, setLang, dir } = useCourseLanguage();
   const copy = courseContent[lang];
@@ -138,7 +132,7 @@ export function TurkishCoursePage() {
                 {copy.heroPrimary}
               </WhatsAppCta>
               <a
-                href="#courses"
+                href="#info"
                 className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-foreground/20 bg-foreground/8 px-5 text-[14px] font-semibold text-foreground backdrop-blur-sm transition hover:border-foreground/35 hover:bg-foreground/12 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground sm:min-h-[3.15rem] sm:w-auto sm:px-6"
               >
                 {copy.heroSecondary}
@@ -154,38 +148,30 @@ export function TurkishCoursePage() {
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <section
-            id="courses"
-            aria-labelledby="courses-heading"
+            id="info"
+            aria-labelledby="info-heading"
             className="scroll-mt-32 border-t border-line py-14 sm:scroll-mt-24 sm:py-16"
           >
-            <SectionIntro titleId="courses-heading" title={copy.coursesHeading} />
-            <ul className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-              {copy.courses.map((course) => (
-                <li key={course.id}>
-                  <article className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-surface ring-1 ring-line shadow-[0_18px_40px_-28px_rgba(0,0,0,0.9)] transition duration-300 hover:-translate-y-0.5 hover:bg-surface-2 hover:shadow-[0_22px_48px_-24px_rgba(0,0,0,0.95)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-                    <div className="relative aspect-[16/10] overflow-hidden bg-[#1b1b1a]">
-                      <CardImage
-                        src={course.image}
-                        alt={course.imageAlt}
-                        objectPosition={
-                          courseImagePosition[course.id] ?? "center"
-                        }
-                        className="transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#171716]/55 to-transparent" />
-                    </div>
-                    <div className="flex flex-1 flex-col px-5 py-5">
-                      <h3 className="text-[1.08rem] leading-[1.5] font-semibold sm:text-[1.15rem]">
-                        {course.title}
-                      </h3>
-                      <p className="mt-2 text-[13.5px] leading-[1.85] text-muted">
-                        {course.description}
-                      </p>
-                    </div>
-                  </article>
-                </li>
-              ))}
-            </ul>
+            <span
+              aria-hidden="true"
+              className="mb-3 block h-px w-10 bg-[#c43a32]"
+            />
+            <h2
+              id="info-heading"
+              dir={copy.businessTitleDir}
+              className="max-w-2xl text-[1.4rem] leading-[1.45] font-semibold sm:text-[1.85rem]"
+            >
+              {copy.businessTitle}
+            </h2>
+            <p
+              dir={copy.businessBodyDir}
+              className="mt-4 max-w-2xl text-[15px] leading-[1.9] text-foreground/88 sm:text-[16px]"
+            >
+              {copy.businessDescription}
+            </p>
+            <p className="mt-5 max-w-2xl text-[14.5px] leading-[1.85] text-muted sm:text-[15px]">
+              {copy.businessContact}
+            </p>
           </section>
 
           <section
@@ -377,7 +363,7 @@ function HeaderNavLinks({
   compact?: boolean;
 }) {
   const items = [
-    { href: "#courses", label: copy.nav.courses },
+    { href: "#info", label: copy.nav.info },
     { href: "#format", label: copy.nav.format },
     { href: "#faq", label: copy.nav.faq },
   ];

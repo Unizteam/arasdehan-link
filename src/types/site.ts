@@ -77,7 +77,7 @@ export type FeaturedContent = {
   message: string;
   description?: string;
   meta?: string;
-  ctaLabel: string;
+  ctaLabel?: string;
   image?: string;
   imageAlt?: string;
   objectPosition?: string;

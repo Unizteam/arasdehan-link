@@ -31,7 +31,8 @@ function renderRowVisual(item: HorizontalItem) {
 }
 
 export function ProjectSection({ section }: { section: CategorySection }) {
-  const href = resolveHref(section.hrefKey);
+  const isTurkish = section.id === "turkish-course";
+  const href = isTurkish ? undefined : resolveHref(section.hrefKey);
   const featured = section.featured;
   const hasFeaturedMedia = !!(featured.image || featured.video);
 
@@ -48,16 +49,17 @@ export function ProjectSection({ section }: { section: CategorySection }) {
           subtitle={section.subtitle}
           href={href}
           titleLeading={
-            section.id === "turkish-course" ? (
+            isTurkish ? (
               <TurkishFlagBadge className="h-7 w-7 sm:h-9 sm:w-9" />
             ) : undefined
           }
-          titleDir={section.id === "turkish-course" ? "ltr" : undefined}
+          titleDir={isTurkish ? "ltr" : undefined}
         />
       </div>
 
       <FeaturedLinkCard
         href={href}
+        interactive={!isTurkish}
         imageSrc={featured.image}
         imageAlt={featured.imageAlt ?? featured.title}
         objectPosition={featured.objectPosition}
@@ -77,7 +79,7 @@ export function ProjectSection({ section }: { section: CategorySection }) {
         accent={section.accent}
       />
 
-      {section.row ? (
+      {!isTurkish && section.row ? (
         <HorizontalCardRow ariaLabel={section.row.ariaLabel} className="mt-4">
           {section.row.items.map((item) => {
             const itemHref = item.hrefKey ? resolveHref(item.hrefKey) : href;
