@@ -1,4 +1,35 @@
-import type { SiteConfig } from "@/types/site";
+import type { CategorySection, SiteConfig } from "@/types/site";
+
+/**
+ * Toggle the home-page Türkçe Kursum section and category tab.
+ * Set to true to restore the section without re-adding content.
+ */
+export const SHOW_TURKISH_COURSE = false;
+
+const turkishCourseCategory = {
+  id: "turkish-course",
+  emoji: "",
+  label: "Türkçe Kursum",
+};
+
+const turkishCourseSection: CategorySection = {
+  id: "turkish-course",
+  emoji: "",
+  title: "Türkçe Kursum",
+  subtitle: "آموزش کاربردی ترکی استانبولی برای محیط کار و بیزینس.",
+  accent: "tr",
+  hrefKey: "TURKISH_COURSE_URL",
+  featured: {
+    title: "",
+    message: "ترکی استانبولی برای کار و بیزینس",
+    description:
+      "مناسب برای کسانی که می‌خواهند از زبان ترکی در محیط کار و بیزینس استفاده کنند.",
+    meta: "علاقه‌مندان برای اطلاعات بیشتر با ادمین در ارتباط باشند.",
+    image: "/media/turkish/hero.webp",
+    imageAlt: "نمایی از استانبول برای دوره آموزش ترکی استانبولی",
+    objectPosition: "center 22%",
+  },
+};
 
 /**
  * Central content and links for the page.
@@ -53,7 +84,7 @@ export const siteConfig: SiteConfig = {
     { id: "neotracked", emoji: "📊", label: "NeoTracked" },
     { id: "unielitez", emoji: "🎓", label: "UniEliteZ" },
     { id: "etvavida", emoji: "", label: "EtvaVida", hrefKey: "ETVAVIDA_URL" },
-    { id: "turkish-course", emoji: "", label: "Türkçe Kursum" },
+    ...(SHOW_TURKISH_COURSE ? [turkishCourseCategory] : []),
     { id: "telegram", emoji: "✈️", label: "کانال Telegram" },
   ],
   sections: [
@@ -273,25 +304,7 @@ export const siteConfig: SiteConfig = {
         ],
       },
     },
-    {
-      id: "turkish-course",
-      emoji: "",
-      title: "Türkçe Kursum",
-      subtitle:
-        "آموزش کاربردی ترکی استانبولی برای محیط کار و بیزینس.",
-      accent: "tr",
-      hrefKey: "TURKISH_COURSE_URL",
-      featured: {
-        title: "",
-        message: "ترکی استانبولی برای کار و بیزینس",
-        description:
-          "مناسب برای کسانی که می‌خواهند از زبان ترکی در محیط کار و بیزینس استفاده کنند.",
-        meta: "علاقه‌مندان برای اطلاعات بیشتر با ادمین در ارتباط باشند.",
-        image: "/media/turkish/hero.webp",
-        imageAlt: "نمایی از استانبول برای دوره آموزش ترکی استانبولی",
-        objectPosition: "center 22%",
-      },
-    },
+    ...(SHOW_TURKISH_COURSE ? [turkishCourseSection] : []),
     {
       id: "telegram",
       emoji: "✈️",
